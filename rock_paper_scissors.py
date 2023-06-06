@@ -2,11 +2,12 @@ import random
 
 userWins = 0
 computerWins = 0
+drawCount = 0
 
 options = ['rock', 'paper', 'scissors']
 
 while True:
-    userInput = input('type rock/paper/scissors or Q ro quit:  ').lower()
+    userInput = input('type rock/paper/scissors or Q to quit:  ').lower()
     if userInput == 'q':
         break
     elif userInput not in options:
@@ -25,10 +26,14 @@ while True:
     elif userInput == 'scissors' and computerPick == 'paper':
         userWins += 1
         print('you won')
+    elif userInput == computerPick:
+        print('draw')
+        drawCount += 1
     else :
         computerWins +=1
         print('you lost')
 
 print('you won', userWins, 'times.')
 print('computer won', computerWins, 'times.')
+print('you played', computerWins+ userWins+ drawCount, 'rounds')
 print('Goodbye!')
